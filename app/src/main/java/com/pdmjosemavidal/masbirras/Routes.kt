@@ -1,11 +1,13 @@
 package com.pdmjosemavidal.masbirras
 
-object Routes {
-    const val AGE_VERIFICATION = "age_verification"
-    const val UNDERAGE = "underage"
-    const val BEER_LIST = "beer_list"
-    const val BEER_DETAIL = "beer_detail/{beerId}"
-    const val FAVORITES = "favorites"
-    const val ADD_BEER = "add_beer"
-    const val REMOVE_BEER = "remove_beer"
+ sealed class Routes(val route: String) {
+     object Age_Verification:Routes("AgeVerificationScreen")
+     object Underage:Routes("UnderageScreen")
+     object Beer_List:Routes("BeerListScreen")
+     object Beer_Detail:Routes("BeerDetailScreen/{beerId}"){
+         fun createRoute(beerId: Int) = "BeerDetailScreen/$beerId"
+     }
+     object Favorites:Routes("FavoritesScreen")
+     object Add_Beer:Routes("AddBeerScreen")
+     object Remove_Beer:Routes("RemoveBeerScreen")
 }

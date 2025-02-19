@@ -15,13 +15,13 @@ fun BottomBarNavigation(navController: NavController, onExit: () -> Unit) {
     NavigationBar {
         NavigationBarItem(
             selected = false,
-            onClick = { navController.navigate(Routes.BEER_LIST) },
+            onClick = { navController.navigate(Routes.Beer_List.route) },
             icon = { Icon(Icons.Default.Home, contentDescription = "Inicio") },
             label = { Text("Inicio") }
         )
         NavigationBarItem(
             selected = false,
-            onClick = { navController.navigate(Routes.FAVORITES) },
+            onClick = { navController.navigate(Routes.Favorites.route) },
             icon = { Icon(Icons.Default.Favorite, contentDescription = "Favoritos") },
             label = { Text("FaV") }
         )

@@ -55,39 +55,12 @@ fun AgeVerificationScreen(navController: NavController) {
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick = {
             if (isValidYear) {
-                navController.navigate("beer_list")
+                navController.navigate(Routes.Beer_List.route)
             } else {
-                navController.navigate("underage")
+                navController.navigate(Routes.Underage.route)
             }
         }) {
             Text(text = "Entrar")
         }
     }
 }
-
-@Composable
-fun UnderageScreen(navController: NavController) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Image(
-            painter = painterResource(id = R.drawable.caramelo),
-            contentDescription = "Imagen de no elegible",
-            modifier = Modifier.size(100.dp)
-        )
-        Text(
-            text = "Lo Siento, debes ser mayor de edad",
-            style = MaterialTheme.typography.headlineSmall
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = { navController.navigate("age_verification") }) {
-            Text(text = "Volver al Inicio")
-        }
-    }
-}
-
-

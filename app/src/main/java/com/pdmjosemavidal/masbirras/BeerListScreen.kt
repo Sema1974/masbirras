@@ -59,8 +59,8 @@ fun BeerListScreen(navController: NavController, viewModel: BeerViewModel) {
                     title = "Listado de Cervezas",
                     showMenuIcon = true,
                     onMenuClick = { scope.launch { drawerState.open() } },
-                    onAddClick = { navController.navigate(Routes.ADD_BEER) },
-                    onDeleteClick = { navController.navigate(Routes.REMOVE_BEER) }
+                    onAddClick = { navController.navigate(Routes.Add_Beer.route) },
+                    onDeleteClick = { navController.navigate(Routes.Remove_Beer.route) }
                 )
             },
             content = { padding ->
@@ -87,7 +87,7 @@ fun BeerRow(navController: NavController, beer: Beer) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { navController.navigate("beer_detail/${beer.id}") }
+            .clickable { navController.navigate(Routes.Beer_Detail.createRoute(beer.id)) }
             .padding(8.dp),
             elevation = CardDefaults.cardElevation(),
         colors = CardDefaults.cardColors(containerColor = Color(0xFFE8F5E9))

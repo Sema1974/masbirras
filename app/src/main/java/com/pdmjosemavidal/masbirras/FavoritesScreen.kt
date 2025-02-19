@@ -23,7 +23,11 @@ fun FavoritesScreen(navController: NavController, viewModel: BeerViewModel) {
 
     Scaffold(
         topBar = {
-            CustomTopAppBar(title = "Cervezas Favoritas", showMenuIcon = false)
+            CustomTopAppBar(title = "Cervezas Favoritas",
+                showMenuIcon = false,
+                onAddClick = { navController.navigate(Routes.Add_Beer.route) },
+                onDeleteClick = { navController.navigate(Routes.Remove_Beer.route) }
+            )
         },
         content = { padding ->
             LazyColumn(
